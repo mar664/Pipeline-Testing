@@ -26,5 +26,5 @@ jobs:
           run: echo "$COMMIT_MESSAGES"
         - name: commit contains '#skip'
           env:
-            CONTAINS_SKIP: ${{ contains(github.event.commits.*.message, '#skip') }}
+            CONTAINS_SKIP: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
           run: echo "$CONTAINS_SKIP"
